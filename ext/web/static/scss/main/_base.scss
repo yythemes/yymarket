@@ -1,0 +1,104 @@
+/* main */
+.yy-main{
+    .yy-group{
+        >.container{
+            margin-top:15px;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+    }
+    .col-md-8{
+        >h3{
+            margin-bottom:10px;
+            margin-top: 20px;
+        }
+        a{
+        	font-size:14px;
+        }
+        padding-left: 15px;
+        padding-right: 15px;
+        animation: fade-in;
+        animation-duration: .5s;
+    }
+    .hot{
+        padding:10px;
+    }
+    .card{
+    	border:none;
+    	margin-bottom:10px;
+    	animation: fade-in;
+        animation-duration: .5s;
+        .card-title{
+        	font-size:16px;
+        	margin:0 0 6px;
+        }
+        
+        .card-body{
+        	padding:10px;
+        	line-height: 2;
+        }
+        .card-link{
+        	font-size:12px;
+        	margin:0 10px 0 0;
+        
+        }
+        span.card-link{
+        	color:#999;
+        }
+        p{
+        	margin-top:15px;
+        }
+        .card-text{
+        	color:#777;
+        	font-size:14px;
+        }
+        .lazyload{
+        	width:220px;
+        	height:150px;
+        	border-radius:5px;
+        }
+        .data{
+        	flex:1;
+        	margin-left:20px;
+        }
+    }
+    .post{
+        margin-bottom: 15px;
+    }
+    .post,.related,.comments {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 3px;
+        animation: fade-in;
+        animation-duration: .5s;
+    }
+}
+
+
+/*
+.main{
+	margin-top:30px;
+	min-height: calc(100vh - 249.09px);
+}
+*/
+
+
+@media screen and (max-width:767px) {
+    .yy-main{
+
+        .card{
+            .lazyload{
+        		width:120px;
+        		height:96px;
+        		border-radius:5px;
+        	}
+        	.data .card-text{
+        		display:none;
+        	}
+            
+        }
+        .post,.related,.comments {
+
+        }
+    }
+}

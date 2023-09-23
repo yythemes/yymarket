@@ -1,0 +1,202 @@
+.home{
+    .yy-main{
+        .search-brand{
+            background-image: url(../images/bg4.jpg);
+            backdrop-filter: blur(5px);
+            animation: fade-in;
+            animation-duration: .5s;
+        }
+        .jumbotron{
+            
+            text-align: center;
+            margin-bottom: 0;
+            background-color:rgba(0,0,0,0.5);
+            padding:120px 0;
+            backdrop-filter: blur(3px);
+            .search-title{
+                font-size: 30px;
+                margin-bottom: 16px;
+                color:#fff;
+            }
+            .search-desc{
+                font-size: 16px;
+                margin-bottom: 24px;
+                color: #eee;
+            }
+            .search-form{
+            	position: relative;
+            	max-width: 600px;
+            	margin: 0 auto;
+            	.form-group{
+                	margin:0;
+                }
+                .keywords{
+                	padding: 8px 36px 8px 16px;
+                	font-size: 18px;
+                    background-color:var(--yy-hf-bg-color);
+                }
+                .submit{
+                	position: absolute;
+                	top: 1px;
+                	right: 1px;
+                	width: 43px;
+                	height: 43px;
+                	border: 0;
+                	background-color:var(--yy-hf-bg-color);
+                	cursor: pointer;
+                	outline: 0;
+                }
+                .fa-search{
+                	color:#999;
+                	font-size:18px;
+                }
+                .fa-search:hover{
+                    color: var(--yy-hf-main-color);
+                }
+            }
+        }
+        
+    }
+}
+
+
+@media screen and (max-width:767px) {
+    .home{
+        .yy-main{
+            .yy-group:first-child{
+               
+            }
+            .jumbotron{
+                padding: 60px 0;
+                .search-title{
+                    font-size: 26px;
+                    margin-bottom: 16px;
+                }
+                .search-desc{
+                    font-size: 13px;
+                    margin-bottom: 24px;
+                }
+                .search-form{
+                    .keywords{
+                    	padding: 6px 36px 6px 16px;
+                    	font-size: 16px;
+                    }
+                    .submit{
+                    	width: 36px;
+                    	height: 36px;
+
+                    }
+                    .fa-search{
+                    	color:#999;
+                    	font-size:16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+/* slide */
+.home{
+    .slide{
+    	margin-bottom:20px;
+    	animation: fade-in;
+        animation-duration: .5s;
+        img{
+        	width:100%;
+        	height:480px;
+        }
+        .slide-shade{
+            position: absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            background-color: #000;
+            opacity: 0.2;
+        }
+        .carousel-caption{
+        	display: flex;
+        	justify-content: center;
+        	align-items: center;
+        	flex-direction: column;
+        	bottom: 10px;
+        	top:10px;
+        }
+        
+    }
+    
+    .yy-main{
+        .flex-title{
+            h3{
+                font-size: 26px;
+            }
+            .desc{
+                color:#999;
+                font-size: 14px;
+            }
+            text-align: center;
+            margin:40px auto 20px auto;
+        }
+    }
+    
+}
+
+
+@media screen and (min-width:768px){
+    .home{
+        .slide{
+            .carousel-caption{
+                h3{
+            		margin:15px;
+            		font-size:1.25rem;
+            	}
+            	p{
+            		color:#eee;
+            	}
+            }
+            .carousel-control-next, .carousel-control-prev {
+                width:5%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:960px) {
+    .home{
+        .slide{
+        	img{
+        		height:340px;
+        	}
+        }
+    }
+}
+
+@media screen and (max-width:767px) {
+    .home{
+        .slide{
+            .carousel-caption h3{
+        		margin:0;
+        	}
+        	img{
+        		height:200px;
+        	}
+        }
+        
+        .yy-main{
+            .flex-title{
+                h3{
+                    font-size: 22px;
+                }
+                .desc{
+                    color:#999;
+                    font-size: 13px;
+                }
+                text-align: center;
+                margin:28px auto 15px auto;
+            }
+        }
+    }
+}
