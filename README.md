@@ -7,7 +7,7 @@
 ### 主题演示
 [https://demo.yythemes.com/yymarket/](https://demo.yythemes.com/yymarket/)
 
-![yymarket](https://raw.githubusercontent.com/xenice/yymarket/master/screenshot.png)
+![yymarket](https://raw.githubusercontent.com/yythemes/yymarket/master/screenshot.png)
 
 
 ### 主题特色
