@@ -31,6 +31,9 @@ if ( !yy_import( 'single' ) ) {?>
         					<?php if ( yy_get( 'single_show_author' ) ) : ?>
         						<span class="card-link md-down-none"><?php echo esc_html( get_the_author_meta( 'display_name', $post->post_author ) ); ?></span>
         					<?php endif; ?>
+        					<?php if (current_user_can('edit_posts')) : ?>
+                    			<a class="card-link" href="<?php echo esc_attr(get_edit_post_link())?>"><?php _e('Edit', 'onenice')?></a>
+                    		<?php endif; ?>
         				</div>
         				<div class="post-content gallery">
         					<?php the_content(); ?>

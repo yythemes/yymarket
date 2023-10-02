@@ -12,6 +12,9 @@ use function xenice\commerce\get_page_url as get_page_url;
   <div class="top">
     <h2 class="field post-title"><a href="<?php the_permalink()?>"
         title="<?php the_title()?>"><?php the_title()?></a>
+        <?php if(get_field(get_the_ID(),'version')):?>
+        <span class="badge badge-secondary"><?php echo get_field(get_the_ID(),'version');?></span>
+        <?php endif;?>
     </h2>
     <div class="field excerpt"><?php the_excerpt()?></div>
     
@@ -29,15 +32,15 @@ use function xenice\commerce\get_page_url as get_page_url;
             // show vip download
             $vip_free_download = false;
             if(function_exists('xenice\member\is_member')){
-                if(get_post_meta($post->ID, 'xc_members', true) == 'free'){
+                $data = [
+                    'download_url'=>get_post_meta($post->ID, 'xc_download_url', true),
+                    'verify_code'=>get_post_meta($post->ID, 'xc_verify_code', true),
+                ];
+                if(get_post_meta($post->ID, 'xc_members', true) == 'free' && !empty($data['download_url'])){
                     $vip_free_download = true;
+                    $current_user_id = get_current_user_id();
                     if($current_user_id && xenice\member\is_member($current_user_id, 'vip')){
-                        
-                        $data = [
-                            'download_url'=>get_post_meta($post->ID, 'xc_download_url', true),
-                            'verify_code'=>get_post_meta($post->ID, 'xc_verify_code', true),
-                        ];
-                        
+
                         echo '<a class="btn btn-primary" target="_blank" href="'.$data['download_url'].'">'.__('VIP download', 'onenice') .'</a>';
                         if($data['verify_code']){
                             echo '<span style="margin-left:5px;display:inline-block">'.__('Verification code:', 'xenice-commerce').'<span>'.$data['verify_code'].'</span></span>';
@@ -52,8 +55,24 @@ use function xenice\commerce\get_page_url as get_page_url;
             }
         ?>
         
+        <?php
+            // show admin download
+            if(yy_get('enable_admin_download') && current_user_can('manage_options')){
+                $data = [
+                    'download_url'=>get_post_meta($post->ID, 'xc_download_url', true),
+                    'verify_code'=>get_post_meta($post->ID, 'xc_verify_code', true),
+                ];
+                if(!empty($data['download_url'])){
+                    echo '<a class="btn btn-danger" target="_blank" href="'.$data['download_url'].'">'.__('Administrator download', 'onenice') .'</a>';
+                    if($data['verify_code']){
+                        echo '<span style="margin-left:5px;display:inline-block">'.__('Verification code:', 'xenice-commerce').'<span>'.$data['verify_code'].'</span></span>';
+                    }
+                }
+            }
+        ?>
+        
         <?php if(get_field(get_the_ID(),'free_download_url')):?>
-            <a class="btn btn-info" href="<?php echo get_field(get_the_ID(),'free_download_url')?>">
+            <a class="btn btn-info" target="_blank" href="<?php echo get_field(get_the_ID(),'free_download_url')?>">
                 <?php echo esc_html__('Free download', 'onenice')?>
             </a>
         <?php endif;?>

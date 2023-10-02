@@ -1,5 +1,7 @@
 <?php
 if(!defined('ABSPATH')) exit;
+global $s;
+
 ?>
 <div class="yy-site">
 <div class="shade"></div>

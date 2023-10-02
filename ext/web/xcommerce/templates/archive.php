@@ -49,7 +49,7 @@ add_action('wp_footer', function(){
                     	    <a href="<?php the_permalink()?>" title="<?php the_title() ?>"><?php the_title() ?></a>
                     	</h4>
                     	<div class="bottom-data">
-                    	    <div class="time"><?php echo get_the_date('Y-m-d', get_the_ID()); ?></div>
+                    	    <div class="time"><?php echo get_the_modified_date('Y-m-d', get_the_ID()); ?></div>
                     	    <div class="price"><?php echo get_price( get_the_ID())?:'';?></div>
                     	</div>
                         

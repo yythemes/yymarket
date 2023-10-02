@@ -1,4 +1,4 @@
-.home{
+.home,.search{
     .yy-main{
         .search-brand{
             background-image: url(../images/bg4.jpg);
@@ -61,7 +61,7 @@
 
 
 @media screen and (max-width:767px) {
-    .home{
+    .home,.search{
         .yy-main{
             .yy-group:first-child{
                
@@ -99,7 +99,7 @@
 
 
 /* slide */
-.home{
+.home,.search{
     .slide{
     	margin-bottom:20px;
     	animation: fade-in;
@@ -139,6 +139,8 @@
             }
             text-align: center;
             margin:40px auto 20px auto;
+            animation: fade-in;
+            animation-duration: .5s;
         }
     }
     
@@ -175,7 +177,7 @@
 }
 
 @media screen and (max-width:767px) {
-    .home{
+    .home,.search{
         .slide{
             .carousel-caption h3{
         		margin:0;

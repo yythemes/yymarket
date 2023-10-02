@@ -10,13 +10,14 @@ class Ext{
 	 * Constructor
 	 */
 	public function __construct(){
-        add_action('init', [$this, 'reset_options']);
+        // add_action('init', [$this, 'reset_options']);
         add_filter('yy_config', [$this, 'config'], 10);
         add_filter('yy_import_file', [$this, 'import_file'], 10, 2);
         add_action('wp_enqueue_scripts', [$this, 'load_scripts'], 20);
         add_filter('yy_default_values', [$this, 'default_values']);
         add_action('pre_get_posts', [$this, 'modify_main_query']);
         new xcommerce\Xcommerce;
+
 	}
 	
 	/**

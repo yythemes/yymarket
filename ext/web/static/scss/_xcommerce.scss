@@ -11,7 +11,7 @@ $price-color: var(--yy-main-color);
     }
 }
 
-.home,.archive-product{
+.home,.archive-product,.search{
     .yy-header{
         .navbar{
 
@@ -117,8 +117,12 @@ $price-color: var(--yy-main-color);
                 text-align: center;
                 font-size: 16px;
             }
+            .badge-secondary{
+                color:#fff;
+            }
 
         }
+        
         .excerpt{
             color:#888;
             font-size: 14px;
@@ -530,7 +534,7 @@ $price-color: var(--yy-main-color);
 }/* orders-page */
 
 @media screen and (max-width: 960px){
-    .home,.archive-product{
+    .home,.archive-product,.search{
         .yy-main{
             .card{
                 width:31%;
@@ -547,7 +551,7 @@ $price-color: var(--yy-main-color);
 }
 
 @media screen and (max-width: 767px){
-    .home,.archive-product{
+    .home,.archive-product,.search{
         .yy-main{
             .brand {
                 padding: 30px 15px;

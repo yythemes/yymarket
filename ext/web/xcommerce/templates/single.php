@@ -61,7 +61,18 @@ $buy_nonce = wp_create_nonce('buy');
                   </div>
         	        <div class="post">
         	            <h3><?php echo __('Detailed Introduction', 'onenice')?></h3>
-                		<div class="post-content"><?php the_content()?></div>
+        	            <div class="post-meta">
+                    		<?php if ( yy_get( 'single_show_date' ) ) : ?>
+                    			<span><?php echo get_the_modified_date('Y-m-d'); ?></span>
+                    		<?php endif; ?>
+                    		<?php if ( yy_get( 'single_show_author' ) ) : ?>
+                    			<span class="card-link md-down-none"><?php echo esc_html( get_the_author_meta( 'display_name', $post->post_author ) ); ?></span>
+                    		<?php endif; ?>
+                    		<?php if (current_user_can('edit_posts')) : ?>
+                    			<a class="card-link" href="<?php echo esc_attr(get_edit_post_link())?>"><?php _e('Edit', 'onenice')?></a>
+                    		<?php endif; ?>
+                    	</div>
+                		<div class="post-content gallery"><?php the_content()?></div>
                 		<?php /*
                         <div class="adjacent d-flex justify-content-between">
                             <span class="previous"><?php previous_post_link(__('Previous Post'). '<br/>%link', '%title', true); ?></span>

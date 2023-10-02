@@ -205,6 +205,12 @@ class Config extends \vessel\Options
                                     'label'  => esc_html__('Give a like', 'onenice')
                                 ],
                                 [
+                                    'id'   => 'enable_admin_download',
+                                    'type'  => 'checkbox',
+                                    'value' => false,
+                                    'label'  => esc_html__('Administrators can download it directly.', 'onenice'),
+                                ],
+                                [
                                     'id'    => 'enable_back_to_top',
                                     'label' => esc_html__('Enable back to top button', 'onenice'),
                                     'type'  => 'checkbox',

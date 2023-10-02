@@ -187,7 +187,9 @@ function yy_login() {
             echo '<a class="dropdown-item" href="' . esc_html( xenice\commerce\get_page_url('my_orders') ) . '">' . esc_html__('My orders', 'onenice' ) . '</a>';
         }
 		?>
-		
+		<?php if(current_user_can('edit_posts')):?>
+            <a class="dropdown-item" href="<?php echo esc_attr( get_admin_url()); ?>"><?php esc_html_e( 'Manage', 'onenice' ); ?></a>
+		<?php endif;?>
 			<a class="dropdown-item" href="<?php echo esc_attr( wp_logout_url() ); ?>"><?php esc_html_e( 'Logout', 'onenice' ); ?></a>
 			</div>
 		</div>
@@ -336,8 +338,8 @@ function yy_get_post_first_image($post){
  * Since time
  *
  */
-function yy_since($date, $comment_date = false ){
-    $older_date = strtotime($date);
+function yy_since($older_date, $comment_date = false ){
+    
     $chunks = array(
         array( 12 * 30 * 24 * 60 * 60, __( ' years ago', 'onenice') ),
         array( 30 * 24 * 60 * 60, __( ' months ago', 'onenice') ),
@@ -371,10 +373,22 @@ function yy_since($date, $comment_date = false ){
  *
  */
 function yy_format_date($date){
-    return yy_since($date);
+    $older_date = get_post_time('U', true);
+    return yy_since($older_date);
 }
 add_filter( 'get_the_date', 'yy_format_date', 20, 1);
 add_filter( 'the_date', 'yy_format_date', 20, 1);
+
+/**
+ * Format time
+ *
+ */
+function yy_format_modified_date($date){
+    $older_date = get_post_modified_time('U', true);
+    return yy_since($older_date);
+}
+add_filter( 'get_the_modified_date', 'yy_format_modified_date', 20,1);
+add_filter( 'the_modified_date', 'yy_format_modified_date', 20, 1);
 
 
 

@@ -11,6 +11,9 @@ use function xenice\commerce\get_field as get_field;
 use function xenice\commerce\get_price as get_price;
 use function xenice\commerce\get_order_price as get_order_price;
 use function xenice\commerce\get_page_url as get_page_url;
+
+global $s;
+
 ?>
 
 <div class="yy-main">
@@ -33,8 +36,7 @@ use function xenice\commerce\get_page_url as get_page_url;
     <div class="yy-group">
         <div class="container">
             <div class="flex-title">
-                <h3><?php echo yy_get('last_published_alias')?></h3>
-                <div class="desc"><?php echo yy_get('last_published_description')?></div>
+                <h3><?php _e('The following results were found:', 'onenice') ?></h3>
             </div>
             <div class="flex product-list" >
                 <?php
@@ -43,7 +45,8 @@ use function xenice\commerce\get_page_url as get_page_url;
                     'post_type' => 'product',
                     'orderby' => 'modified',
                     'posts_per_page' => yy_get('resource_quantity'),
-                    'paged' => $paged
+                    'paged' => $paged,
+                    's'=>esc_html( $s )
                 );
                 $query = new WP_Query( $args );
                 ?>
@@ -71,7 +74,7 @@ use function xenice\commerce\get_page_url as get_page_url;
                 <div class="card">
                     <div class="card-body">
                         <div class="data">
-                            <p class="card-text"><?php echo __('No products.', 'xenice-commerce')?></p>
+                            <p class="card-text"><?php echo __('No resources found.', 'xenice-commerce')?></p>
                         </div>
                     </div>
                 </div>
@@ -94,5 +97,3 @@ use function xenice\commerce\get_page_url as get_page_url;
         </div>
     </div><!-- yy-group -->
 </div><!-- yy-main -->
-
-
