@@ -173,6 +173,9 @@ $price-color: var(--yy-main-color);
             box-shadow: 0 0 1.25rem rgba(31, 45, 61, 0.05);
             transition: all 0.2s ease;
         }
+        
+        
+        
         .service{
             text-align: center;
             margin:0 auto;
@@ -292,6 +295,46 @@ $price-color: var(--yy-main-color);
         }
     }
 } /* single-product */
+
+
+.single-product .customer-service{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 200px;
+    li{
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+        display:flex;
+        line-height:1;
+    }
+    .icon{
+        font-size: 22px;
+        border: 1px solid #ccc;
+        margin:5px;
+        border-radius: 5px;
+        width: 42px;
+        height: 42px;
+        line-height: 1.7;
+        text-align:center;
+    }
+    .fa-weixin{
+        color:#7BD172
+    }
+    
+    .fa-qq{
+        color:#f67585
+    }
+    .text{
+        padding: 8px;
+    }
+    .t1{
+        font-size:14px;
+        color:#999;
+        margin-bottom:5px;
+    }
+}/* .single-product .customer-service */
 
 
 .checkout-page{

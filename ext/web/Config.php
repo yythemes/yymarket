@@ -166,6 +166,12 @@ class Config extends \vessel\Options
                             'value' => ''
                         ],
                         [
+                            'id'   => 'resource_quantity',
+                            'name' => esc_html__('Display resource quantity', 'onenice'),
+                            'type' => 'number',
+                            'value' => 12,
+                        ],
+                        [
                             'name'=> esc_html__('Auxiliary functions', 'onenice'),
                             'fields'=>[
                                 [
@@ -343,12 +349,7 @@ class Config extends \vessel\Options
                             'rows' => 3,
                             'value' => __('We will continue to update the latest hot resources and continue to provide you with more choices!', 'onenice')
                         ],
-                        [
-                            'id'   => 'resource_quantity',
-                            'name' => esc_html__('Display resource quantity', 'onenice'),
-                            'type' => 'number',
-                            'value' => 12,
-                        ],
+                        
                     ]
                 ], #tab home
                 [
@@ -457,7 +458,32 @@ class Config extends \vessel\Options
                         ],
                     ]
                 ], #tab posts
-            ]
+                [
+                    'id' => 'service',
+                    'title' => esc_html__('Customer service', 'onenice'),
+                    'fields'=>[
+                        [
+                            'id'    => 'enable_customer_service',
+                            'name'  => esc_html__('Enable customer service', 'onenice'),
+                            'label' => esc_html__('When enabled, a customer service button will be displayed on the details page.', 'onenice'),
+                            'type'  => 'checkbox',
+                            'value' => true
+                        ],
+                        [
+                            'id'    => 'customer_service_qq',
+                            'name'  => esc_html__('Customer service QQ', 'onenice'),
+                            'type'  => 'text',
+                            'value' => ''
+                        ],
+                        [
+                            'id'    => 'customer_service_wechat',
+                            'name'  => esc_html__('Customer service wechat', 'onenice'),
+                            'type'  => 'text',
+                            'value' => ''
+                        ],
+                    ]
+                ]
+            ] #tab posts
         ];
 	    parent::__construct();
     }

@@ -74,7 +74,7 @@ global $s;
                 <div class="card">
                     <div class="card-body">
                         <div class="data">
-                            <p class="card-text"><?php echo __('No resources found.', 'xenice-commerce')?></p>
+                            <p class="card-text" style="display:block"><?php echo __('No resources found.', 'onenice')?></p>
                         </div>
                     </div>
                 </div>

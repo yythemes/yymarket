@@ -60,7 +60,7 @@ $buy_nonce = wp_create_nonce('buy');
                       <?php include __DIR__ . '/download-part.php';?>
                   </div>
         	        <div class="post">
-        	            <h3><?php echo __('Detailed Introduction', 'onenice')?></h3>
+        	            <h2 class="post-title"><?php the_title()?></h2>
         	            <div class="post-meta">
                     		<?php if ( yy_get( 'single_show_date' ) ) : ?>
                     			<span><?php echo get_the_modified_date('Y-m-d'); ?></span>
@@ -125,7 +125,7 @@ $buy_nonce = wp_create_nonce('buy');
                                 <div class="meta">
                                     <h4><a href="<?php echo the_permalink( $cur_post->ID )?>" title="<?php echo $title?>"><?php echo $title?></a></h4>
                                     <div class="bottom-data">
-                                	    <div class="time"><?php echo get_the_date('Y-m-d', $cur_post->ID); ?></div>
+                                	    <div class="time"><?php echo get_the_modified_date('Y-m-d', $cur_post->ID); ?></div>
                                 	    <div class="price"><?php echo get_price( $cur_post->ID)?:'';?></div>
                                 	</div>
                                 </div>

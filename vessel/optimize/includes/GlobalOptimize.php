@@ -74,7 +74,7 @@ class GlobalOptimize
     public function getAvatarUrl($url){
         $pos = strpos($url,'/avatar/');
         if($pos>0){
-            $new_url = 'https://gravatar.wp-china-yes.net';
+            $new_url = 'https://cravatar.cn';
             $slug = substr($url, $pos);
             return $new_url . $slug;
         }

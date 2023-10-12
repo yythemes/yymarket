@@ -376,19 +376,31 @@ function yy_format_date($date){
     $older_date = get_post_time('U', true);
     return yy_since($older_date);
 }
-add_filter( 'get_the_date', 'yy_format_date', 20, 1);
 add_filter( 'the_date', 'yy_format_date', 20, 1);
+
+function yy_format_get_date($date, $format, $post){
+    $older_date = get_post_time('U', true, $post);
+    return yy_since($older_date);
+}
+add_filter( 'get_the_date', 'yy_format_get_date', 20, 3);
+
 
 /**
  * Format time
  *
  */
+
 function yy_format_modified_date($date){
     $older_date = get_post_modified_time('U', true);
     return yy_since($older_date);
 }
-add_filter( 'get_the_modified_date', 'yy_format_modified_date', 20,1);
 add_filter( 'the_modified_date', 'yy_format_modified_date', 20, 1);
+
+function yy_format_get_modified_date($date, $format, $post){
+    $older_date = get_post_modified_time('U', true, $post);
+    return yy_since($older_date);
+}
+add_filter( 'get_the_modified_date', 'yy_format_get_modified_date', 20,3);
 
 
 
@@ -583,6 +595,5 @@ if ( ! is_admin() ) {
 	);
 	
 }
-
 
 

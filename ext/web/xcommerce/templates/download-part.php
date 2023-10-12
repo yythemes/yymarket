@@ -81,6 +81,13 @@ use function xenice\commerce\get_page_url as get_page_url;
                 <?php echo esc_html__('Demo url', 'onenice')?>
             </a>
         <?php endif;?>
+        
+        <?php 
+            if(yy_get('enable_customer_service')){
+                include __DIR__ . '/customer-service.php';
+            }
+        ?>
+            
     </div>
     <?php 
     $info = get_post_meta($post->ID, 'xc_service_info', true);

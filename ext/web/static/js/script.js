@@ -142,8 +142,6 @@ jQuery(function($){
     });
 });
 
-
-
 /* get a like */
 jQuery(function($){
     if($('.post-like-a').length<1) return;
@@ -205,3 +203,9 @@ function yy_check_home_search(){
 	}
 	return true;
 }
+
+/* Contact customer service popover init */
+jQuery(function(){
+    if(jQuery('[data-toggle="popover"]').length<1) return;
+    jQuery('[data-toggle="popover"]').popover();   
+});

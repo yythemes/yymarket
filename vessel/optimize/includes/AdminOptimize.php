@@ -64,7 +64,54 @@ class AdminOptimize
         ?>
         <script>
             QTags.addButton( 'h4', 'h4', "<h4>", "</h4>");
+            QTags.addButton( 'h5', 'h5', "<h5>", "</h5>");
             QTags.addButton( 'strong', 'strong', "<strong>", "</strong>");
+            QTags.addButton( 'pre', 'pre', "<pre>", "</pre>");
+            QTags.addButton( 'pre/code', 'pre/code', "<pre><code>", "</code></pre>");
+        </script>
+        
+        <script>
+
+            jQuery(document).ready(function($) {
+
+                // 创建自定义按钮
+                var customButton = '<input type="button" id="add_ul_li" class="ed_button button button-small" value="ul/li">';
+
+                // 将按钮添加到工具栏
+                $(customButton).appendTo('#ed_toolbar');
+
+                // 按钮点击事件
+                $(document).on('click', '#add_ul_li', function(e) {
+                    e.preventDefault();
+                    
+                    // 获取编辑器对象
+                    var editor = document.getElementById('content');
+
+                    // 获取选定的文本
+                    var selectedText = '';
+                    if (window.getSelection) {
+                        selectedText = window.getSelection().toString();
+                    } else if (document.selection && document.selection.type != "Control") {
+                        selectedText = document.selection.createRange().text;
+                    }
+    
+                    // 按行分割文本
+                    var lines = selectedText.split('\n');
+    
+                    // 添加li标签到每一行
+                    var formattedText = '';
+                    for (var i = 0; i < lines.length; i++) {
+                        formattedText += '<li>' + lines[i] + '</li>\n';
+                    }
+    
+                    // 替换选中的文本
+                    if (document.execCommand) {
+                        document.execCommand('insertText', false, '<ul>\n' + formattedText + '</ul>');
+                    } else {
+                        editor.setRangeText('<ul>\n' + formattedText + '</ul>');
+                    }
+                });
+            });
         </script>
         <?php
     }

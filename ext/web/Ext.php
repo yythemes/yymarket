@@ -17,7 +17,6 @@ class Ext{
         add_filter('yy_default_values', [$this, 'default_values']);
         add_action('pre_get_posts', [$this, 'modify_main_query']);
         new xcommerce\Xcommerce;
-
 	}
 	
 	/**
@@ -66,6 +65,7 @@ class Ext{
         wp_dequeue_script('yythemes');
         wp_enqueue_style('yythemes-ext', EXT_STATIC_URL . '/css/style.css', array(), filemtime(EXT_STATIC_DIR . '/css/style.css'));
     	wp_enqueue_script('yythemes-ext', EXT_STATIC_URL . '/js/script.js', array(), filemtime(EXT_STATIC_DIR . '/js/script.js'));
+    	
     }
 
     /**
@@ -103,6 +103,8 @@ class Ext{
                 $query->set( 'post_type', 'product');
             }
             $query->set( 'orderby', 'modified');
+            $query->set( 'posts_per_page', yy_get('resource_quantity'));
+            
         }
     }
     
