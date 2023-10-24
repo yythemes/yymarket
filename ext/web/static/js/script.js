@@ -142,6 +142,8 @@ jQuery(function($){
     });
 });
 
+
+
 /* get a like */
 jQuery(function($){
     if($('.post-like-a').length<1) return;
@@ -194,7 +196,37 @@ jQuery(window).on('resize', function() {
 });
 /* #product-list image */
 
+/* Fixed the issue that the search form and comment form in the details page responded to the Enter key at the same time */
 
+document.addEventListener('DOMContentLoaded', function() {
+    var commentForm1 = document.querySelector('.search-form');
+    var commentForm2 = document.querySelector('.comment-form');
+
+    if(commentForm1){
+        commentForm1.addEventListener('keydown', function(event) {
+            if (event.keyCode === 13 && !event.shiftKey) {
+                event.stopPropagation();
+            }
+        });
+    }
+    
+    if(commentForm2){
+        commentForm2.addEventListener('keydown', function(event) {
+            if (event.keyCode === 13 && !event.shiftKey) {
+                event.stopPropagation();
+            }
+        });
+    }
+});
+
+/* end */
+
+function yy_check_search(){
+	if(jQuery("#wd").val() == ""){
+		return false;
+	}
+	return true;
+}
 
 function yy_check_home_search(){
 
@@ -204,7 +236,18 @@ function yy_check_home_search(){
 	return true;
 }
 
-/* Contact customer service popover init */
+/* rollbar popover */
+jQuery(function(){
+    if(jQuery('[data-toggle="qq-popover"]').length<1) return;
+    jQuery('[data-toggle="qq-popover"]').popover();   
+});
+
+jQuery(function(){
+    if(jQuery('[data-toggle="wechat-popover"]').length<1) return;
+    jQuery('[data-toggle="wechat-popover"]').popover();   
+});
+
+/* product page: Contact customer service popover init */
 jQuery(function(){
     if(jQuery('[data-toggle="popover"]').length<1) return;
     jQuery('[data-toggle="popover"]').popover();   

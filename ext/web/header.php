@@ -49,10 +49,10 @@ global $s;
         		</div> 
         		<?php if ( yy_get( 'show_search' ) ) : ?>
     			<div class="d-md-flex justify-content-md-end">
-    				<form class="search-form" method="get" onsubmit="return check()" action="<?php echo esc_attr( home_url() ); ?>/" >
+    				<form class="search-form" method="get" onsubmit="return yy_check_search()" action="<?php echo esc_attr( home_url() ); ?>/" >
     					<div class="form-group">
     						<input id="wd" type="text" name="s" class="form-control keywords" placeholder="<?php echo yy_get('search_box_tips'); ?>" value="<?php echo empty($s) ?  '':esc_attr( $s ); ?>" />
-    						<button type="submit" class="rounded submit" onclick="return yy_check_search()">
+    						<button type="submit" class="rounded submit">
     							<i class="fa fa-search"></i>
     						</button>
     					</div>

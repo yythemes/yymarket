@@ -456,6 +456,14 @@ class Config extends \vessel\Options
                             'rows'  => 4,
                             'value' => 'qzone,tencent,linkedin,diandian,google,twitter,facebook'
                         ],
+                        [
+                            'id'    => 'copyright_notice',
+                            'name'  => esc_html__('Copyright Notice', 'onenice'),
+                            'desc'  => esc_html__('Add a copyright notice at the bottom of the article.', 'onenice'),
+                            'type'  => 'textarea',
+                            'rows'  => 4,
+                            'value' => esc_html__('All articles on this site, unless otherwise specified, are original publications of this site. If the content of this site violates your legitimate rights and interests, please contact us to deal with it.', 'onenice')
+                        ],
                     ]
                 ], #tab posts
                 [

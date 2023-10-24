@@ -16,7 +16,16 @@ class Ext{
         add_action('wp_enqueue_scripts', [$this, 'load_scripts'], 20);
         add_filter('yy_default_values', [$this, 'default_values']);
         add_action('pre_get_posts', [$this, 'modify_main_query']);
+        
+        // change rollbar
+        add_action('wp_head', function(){
+            remove_action('wp_footer', 'yy_rollbar', 99);
+            add_action('wp_footer', [$this, 'rollbar'], 99);
+        });
+
+        
         new xcommerce\Xcommerce;
+        
 	}
 	
 	/**
@@ -106,6 +115,45 @@ class Ext{
             $query->set( 'posts_per_page', yy_get('resource_quantity'));
             
         }
+    }
+    
+    
+    public function rollbar(){
+        ?>
+        <script>
+            jQuery(function($){
+                $(".rollbar .scroll-top").on("click",function(){
+    				$("body,html").animate({"scrollTop":0},500);
+    			});
+            });
+        </script>
+        <?php
+        echo '<div class="rollbar md-down-none">';
+        if ( yy_get( 'customer_service_qq' ) ) {
+            $info = '<ul class="customer-service"><li><div class="icon"><i class="fa fa-qq" aria-hidden="true"></i></div><div class="text"><div class="t1">QQ:</div><div class="t2">'.yy_get('customer_service_qq').'</div></div></li></ul>';
+			?>
+			<div class="rollbar-item" title="<?php esc_attr_e( 'QQ customer service', 'onenice' ); ?>" data-toggle="qq-popover" data-placement="right" data-content='<?php echo $info?>' data-html="true"  data-trigger="hover" >
+			    <i class="fa fa-qq"></i>
+			</div>
+			<?php
+
+		}
+		if ( yy_get( 'customer_service_wechat' ) ) {
+		     $info = '<ul class="customer-service"><li><div class="icon"><i class="fa fa-weixin" aria-hidden="true"></i></div><div class="text"><div class="t1">'.__('Wechat', 'onenice').':</div><div class="t2">'.yy_get('customer_service_wechat').'</div></div></li></ul>';
+			?>
+			<div class="rollbar-item" title="<?php esc_attr_e( 'WeChat customer service', 'onenice' ); ?>" data-toggle="wechat-popover" data-placement="right" data-content='<?php echo $info?>' data-html="true"  data-trigger="hover" >
+			    <i class="fa fa-weixin"></i>
+			</div>
+			<?php
+
+		}
+		if ( yy_get( 'enable_back_to_top' ) ) {
+			?>
+			<div class="rollbar-item scroll-top" title="<?php esc_attr_e( 'Back to top', 'onenice' ); ?>"><i class="fa fa-angle-up"></i></div>
+			<?php
+
+		}
+		echo '</div>';
     }
     
 }

@@ -73,6 +73,11 @@ $buy_nonce = wp_create_nonce('buy');
                     		<?php endif; ?>
                     	</div>
                 		<div class="post-content gallery"><?php the_content()?></div>
+        				<?php if ( yy_get( 'copyright_notice' ) ): ?>
+        				<div class="copyright-notice">
+	                        <i class="fa fa-info-circle"></i><?php echo esc_html(yy_get( 'copyright_notice' ))?> 
+	                    </div>
+	                    <?php endif;?>
                 		<?php /*
                         <div class="adjacent d-flex justify-content-between">
                             <span class="previous"><?php previous_post_link(__('Previous Post'). '<br/>%link', '%title', true); ?></span>

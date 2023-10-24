@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: onenice\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-01 02:28+0000\n"
-"PO-Revision-Date: 2023-10-10 09:09+0000\n"
+"PO-Revision-Date: 2023-10-23 14:20+0000\n"
 "Last-Translator: \n"
 "Language-Team: 简体中文\n"
 "Language: zh_CN\n"
@@ -15,27 +15,27 @@ msgstr ""
 "X-Loco-Version: 2.6.6; wp-6.3.1\n"
 "X-Domain: onenice"
 
-#: functions.php:346
+#: functions.php:348
 msgid " days ago"
 msgstr "天前"
 
-#: functions.php:347
+#: functions.php:349
 msgid " hours ago"
 msgstr "小时前"
 
-#: functions.php:348
+#: functions.php:350
 msgid " minutes ago"
 msgstr "分钟前"
 
-#: functions.php:345
+#: functions.php:347
 msgid " months ago"
 msgstr "个月前"
 
-#: functions.php:349
+#: functions.php:351
 msgid " seconds ago"
 msgstr "秒前"
 
-#: functions.php:344
+#: functions.php:346
 msgid " years ago"
 msgstr "年前"
 
@@ -64,6 +64,10 @@ msgstr "关于主题"
 msgid "Add"
 msgstr "增加"
 
+#: ext/web/Config.php:468
+msgid "Add a copyright notice at the bottom of the article."
+msgstr "在文章底部添加版权声明。"
+
 #: ext/web/xcommerce/templates/download-part.php:66
 msgid "Administrator download"
 msgstr "管理员下载"
@@ -76,11 +80,18 @@ msgstr "管理员可以直接下载"
 msgid "Advanced"
 msgstr "高级"
 
+#: ext/web/Config.php:471
+msgid ""
+"All articles on this site, unless otherwise specified, are original "
+"publications of this site. If the content of this site violates your "
+"legitimate rights and interests, please contact us to deal with it."
+msgstr "本站所有文章，如无特殊说明，均为本站原创发布。如果本站的内容侵犯了您的合法权益，请联系我们进行处理。"
+
 #: vessel/Config.php:304 ext/web/Config.php:363
 msgid "Archive"
 msgstr "归档"
 
-#: functions.php:234
+#: functions.php:236
 msgid "archive"
 msgstr "归档"
 
@@ -100,7 +111,7 @@ msgstr "辅助功能"
 msgid "Back to home"
 msgstr "回到首页"
 
-#: functions.php:587
+#: functions.php:595 ext/web/Ext.php:191
 msgid "Back to top"
 msgstr "回到顶部"
 
@@ -113,15 +124,15 @@ msgstr " 后台优化"
 msgid "Background "
 msgstr "背景"
 
-#: functions.php:179
+#: functions.php:181
 msgid "Buy VIP "
 msgstr "购买VIP"
 
-#: vessel/login/ajax/LoginAjax.php:184 vessel/login/ajax/LoginAjax.php:185
+#: vessel/login/templates/modal.php:67
 #: vessel/login/templates/xenice-login.php:101
 #: vessel/login/templates/xenice-login.php:124
 #: vessel/login/templates/xenice-login.php:159
-#: vessel/login/templates/modal.php:67
+#: vessel/login/ajax/LoginAjax.php:184 vessel/login/ajax/LoginAjax.php:185
 msgid "Captcha"
 msgstr "验证码"
 
@@ -159,9 +170,9 @@ msgstr "评论"
 msgid "Comments (%s)"
 msgstr "评论 (%s)"
 
+#: vessel/login/templates/modal.php:64
 #: vessel/login/templates/xenice-login.php:98
 #: vessel/login/templates/xenice-login.php:156
-#: vessel/login/templates/modal.php:64
 msgid "Confirm password"
 msgstr "确认密码"
 
@@ -177,19 +188,23 @@ msgstr "联系信息"
 msgid "Convert the html within the code tag to entity before saving posts"
 msgstr "在保存文章之前，将代码标记内的html转换为实体"
 
+#: ext/web/Config.php:467
+msgid "Copyright Notice"
+msgstr "版权声明"
+
 #: vessel/optimize/Config.php:179
 msgid "Create a unique slug the first time you save the article"
 msgstr "在第一次保存文章时创建一个唯一的slug"
 
-#: ext/web/Config.php:469
+#: ext/web/Config.php:477
 msgid "Customer service"
 msgstr "客服"
 
-#: ext/web/Config.php:480
+#: ext/web/Config.php:488
 msgid "Customer service QQ"
 msgstr "客服QQ"
 
-#: ext/web/Config.php:486
+#: ext/web/Config.php:494
 msgid "Customer service wechat"
 msgstr "客服微信"
 
@@ -278,13 +293,13 @@ msgstr "显示文章缩略图?"
 msgid "Display resource quantity"
 msgstr "显示资源数量"
 
-#: page.php:22 single.php:35 ext/web/single.php:30
+#: single.php:35 page.php:22 ext/web/single.php:30
 #: ext/web/xcommerce/templates/single.php:72
 msgid "Edit"
 msgstr "编辑"
 
-#: vessel/login/templates/xenice-login.php:92
 #: vessel/login/templates/modal.php:58
+#: vessel/login/templates/xenice-login.php:92
 msgid "Email"
 msgstr "邮箱"
 
@@ -331,7 +346,7 @@ msgstr "开启代码高亮显示"
 msgid "Enable css animation"
 msgstr "开启css动画效果"
 
-#: ext/web/Config.php:473
+#: ext/web/Config.php:481
 msgid "Enable customer service"
 msgstr "开启客服"
 
@@ -380,7 +395,7 @@ msgstr "摘要长度"
 msgid "execute..."
 msgstr "执行……"
 
-#: functions.php:173
+#: functions.php:175
 msgid "Expire time: "
 msgstr "过期时间："
 
@@ -457,13 +472,13 @@ msgstr "页头"
 msgid "Header and footer colors"
 msgstr "页头和页脚颜色"
 
-#: search.php:15 functions.php:107 functions.php:127 functions.php:218
+#: functions.php:109 functions.php:129 functions.php:220 search.php:15
 #: ext/web/Config.php:324
 msgid "Home"
 msgstr "首页"
 
 #. Name of the template
-#: ext/web/Ext.php:24
+#: ext/web/Ext.php:32
 msgid "Home-1"
 msgstr "首页-1"
 
@@ -471,7 +486,7 @@ msgstr "首页-1"
 msgid "Hot Posts"
 msgstr "热门文章"
 
-#: ext/web/xcommerce/templates/single.php:97
+#: ext/web/xcommerce/templates/single.php:102
 msgid "Hot Recommendation"
 msgstr "热门推荐"
 
@@ -520,7 +535,7 @@ msgstr "最新发布"
 msgid "Light"
 msgstr "轻柔"
 
-#: single.php:48 vessel/ajax/LikeAjax.php:31 ext/web/single.php:46
+#: single.php:48 ext/web/single.php:46 vessel/ajax/LikeAjax.php:31
 msgid "Liked"
 msgstr "已赞"
 
@@ -534,13 +549,13 @@ msgstr "链接"
 msgid "List Style"
 msgstr "列表风格"
 
-#: functions.php:48 functions.php:199 vessel/login/Login.php:59
+#: functions.php:50 functions.php:201 vessel/login/Login.php:59
+#: vessel/login/templates/modal.php:12 vessel/login/templates/modal.php:27
+#: vessel/login/templates/modal.php:46
 #: vessel/login/templates/xenice-login.php:78
 #: vessel/login/templates/xenice-login.php:111
 #: vessel/login/templates/xenice-login.php:135
 #: vessel/login/templates/xenice-login.php:170
-#: vessel/login/templates/modal.php:12 vessel/login/templates/modal.php:27
-#: vessel/login/templates/modal.php:46
 msgid "Login"
 msgstr "登录"
 
@@ -548,7 +563,7 @@ msgstr "登录"
 msgid "Login..."
 msgstr "登录中 ..."
 
-#: functions.php:193
+#: functions.php:195
 msgid "Logout"
 msgstr "退出"
 
@@ -582,15 +597,15 @@ msgstr "邮件标题"
 msgid "Main"
 msgstr "主要"
 
-#: functions.php:209
+#: functions.php:211
 msgid "Main Menu"
 msgstr "主菜单"
 
-#: functions.php:191
+#: functions.php:193
 msgid "Manage"
 msgstr "管理"
 
-#: functions.php:187
+#: functions.php:189
 msgid "My orders"
 msgstr "我的订单"
 
@@ -651,9 +666,9 @@ msgstr "优化"
 msgid "Page Width"
 msgstr "页面宽度"
 
+#: vessel/login/templates/modal.php:24 vessel/login/templates/modal.php:61
 #: vessel/login/templates/xenice-login.php:75
 #: vessel/login/templates/xenice-login.php:95
-#: vessel/login/templates/modal.php:24 vessel/login/templates/modal.php:61
 msgid "Password"
 msgstr "密码"
 
@@ -704,7 +719,7 @@ msgid ""
 "Please remember the password, you can click the following link to log in: "
 msgstr "请记住密码，您可以点击以下链接登录："
 
-#: functions.php:226 vessel/Config.php:354 ext/web/Config.php:413
+#: functions.php:228 vessel/Config.php:354 ext/web/Config.php:413
 msgid "Posts"
 msgstr "文章"
 
@@ -720,16 +735,20 @@ msgstr "上一篇文章"
 msgid "Profile can also be saved when user email is empty"
 msgstr "当用户邮箱为空时，也可以保存配置文件"
 
-#: sidebar.php:37 index.php:17 vessel/widgets/RecentPostsWidget.php:27
+#: ext/web/Ext.php:174
+msgid "QQ customer service"
+msgstr "QQ客服"
+
+#: index.php:17 sidebar.php:37 vessel/widgets/RecentPostsWidget.php:27
 msgid "Recent Posts"
 msgstr "最近文章"
 
-#: vessel/login/Login.php:60 vessel/login/templates/xenice-login.php:83
+#: vessel/login/Login.php:60 vessel/login/templates/modal.php:15
+#: vessel/login/templates/modal.php:49 vessel/login/templates/modal.php:73
+#: vessel/login/templates/xenice-login.php:83
 #: vessel/login/templates/xenice-login.php:107
 #: vessel/login/templates/xenice-login.php:136
 #: vessel/login/templates/xenice-login.php:171
-#: vessel/login/templates/modal.php:15 vessel/login/templates/modal.php:49
-#: vessel/login/templates/modal.php:73
 msgid "Register"
 msgstr "注册"
 
@@ -781,7 +800,7 @@ msgstr "保存失败"
 msgid "save success"
 msgstr "保存成功"
 
-#: search.php:16 header.php:64 ext/web/Config.php:343
+#: header.php:64 search.php:16 ext/web/Config.php:343
 msgid "Search"
 msgstr "搜索"
 
@@ -1025,6 +1044,15 @@ msgstr "缩略图"
 msgid "Title:"
 msgstr "标题："
 
+#: ext/web/page-templates/update-log.php:100
+msgid "Uncategorized"
+msgstr "未分类"
+
+#. Name of the template
+#: ext/web/Ext.php:33
+msgid "Update Log"
+msgstr "更新日志"
+
 #: vessel/Elements.php:248 vessel/Elements.php:266
 msgid "URL:"
 msgstr ""
@@ -1033,8 +1061,8 @@ msgstr ""
 msgid "User does not set email"
 msgstr "用户没有设置邮箱"
 
-#: vessel/login/templates/xenice-login.php:89
 #: vessel/login/templates/modal.php:55
+#: vessel/login/templates/xenice-login.php:89
 msgid "Username"
 msgstr "用户名"
 
@@ -1052,9 +1080,9 @@ msgstr "用户名由字母、数字或下划线组成，长度为6 ~ 16个字符
 msgid "Username does not exist"
 msgstr "用户名不存在"
 
+#: vessel/login/templates/modal.php:21
 #: vessel/login/templates/xenice-login.php:72
 #: vessel/login/templates/xenice-login.php:121
-#: vessel/login/templates/modal.php:21
 msgid "Username or Email"
 msgstr "用户名或邮箱地址"
 
@@ -1069,6 +1097,10 @@ msgstr "用户名或密码错误"
 #: vessel/about/Config.php:32
 msgid "Version"
 msgstr "版本"
+
+#: ext/web/page-templates/update-log.php:112
+msgid "View"
+msgstr "查看"
 
 #: ext/web/xcommerce/templates/download-part.php:44
 #: ext/web/xcommerce/templates/download-part.php:51
@@ -1085,9 +1117,13 @@ msgid ""
 "you with more choices!"
 msgstr "我们将继续更新最新发布的热门资源，不断为您提供更多选择！"
 
-#: ext/web/xcommerce/templates/customer-service.php:9
+#: ext/web/Ext.php:181 ext/web/xcommerce/templates/customer-service.php:9
 msgid "Wechat"
 msgstr "微信"
+
+#: ext/web/Ext.php:183
+msgid "WeChat customer service"
+msgstr "微信客服"
 
 #: vessel/Config.php:401 ext/web/Config.php:460
 msgid ""
@@ -1095,7 +1131,7 @@ msgid ""
 "facebook"
 msgstr ""
 
-#: ext/web/Config.php:474
+#: ext/web/Config.php:482
 msgid ""
 "When enabled, a customer service button will be displayed on the details "
 "page."

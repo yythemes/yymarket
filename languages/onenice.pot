@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: onenice\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-10 09:08+0000\n"
+"POT-Creation-Date: 2023-10-23 14:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,27 +16,27 @@ msgstr ""
 "X-Loco-Version: 2.6.2; wp-6.0.3\n"
 "X-Domain: onenice"
 
-#: functions.php:346
+#: functions.php:348
 msgid " days ago"
 msgstr ""
 
-#: functions.php:347
+#: functions.php:349
 msgid " hours ago"
 msgstr ""
 
-#: functions.php:348
+#: functions.php:350
 msgid " minutes ago"
 msgstr ""
 
-#: functions.php:345
+#: functions.php:347
 msgid " months ago"
 msgstr ""
 
-#: functions.php:349
+#: functions.php:351
 msgid " seconds ago"
 msgstr ""
 
-#: functions.php:344
+#: functions.php:346
 msgid " years ago"
 msgstr ""
 
@@ -65,6 +65,10 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
+#: ext/web/Config.php:468
+msgid "Add a copyright notice at the bottom of the article."
+msgstr ""
+
 #: ext/web/xcommerce/templates/download-part.php:66
 msgid "Administrator download"
 msgstr ""
@@ -77,11 +81,18 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
+#: ext/web/Config.php:471
+msgid ""
+"All articles on this site, unless otherwise specified, are original "
+"publications of this site. If the content of this site violates your "
+"legitimate rights and interests, please contact us to deal with it."
+msgstr ""
+
 #: vessel/Config.php:304 ext/web/Config.php:363
 msgid "Archive"
 msgstr ""
 
-#: functions.php:234
+#: functions.php:236
 msgid "archive"
 msgstr ""
 
@@ -101,7 +112,7 @@ msgstr ""
 msgid "Back to home"
 msgstr ""
 
-#: functions.php:587
+#: functions.php:595 ext/web/Ext.php:191
 msgid "Back to top"
 msgstr ""
 
@@ -114,15 +125,15 @@ msgstr ""
 msgid "Background "
 msgstr ""
 
-#: functions.php:179
+#: functions.php:181
 msgid "Buy VIP "
 msgstr ""
 
-#: vessel/login/ajax/LoginAjax.php:184 vessel/login/ajax/LoginAjax.php:185
+#: vessel/login/templates/modal.php:67
 #: vessel/login/templates/xenice-login.php:101
 #: vessel/login/templates/xenice-login.php:124
 #: vessel/login/templates/xenice-login.php:159
-#: vessel/login/templates/modal.php:67
+#: vessel/login/ajax/LoginAjax.php:184 vessel/login/ajax/LoginAjax.php:185
 msgid "Captcha"
 msgstr ""
 
@@ -160,9 +171,9 @@ msgstr ""
 msgid "Comments (%s)"
 msgstr ""
 
+#: vessel/login/templates/modal.php:64
 #: vessel/login/templates/xenice-login.php:98
 #: vessel/login/templates/xenice-login.php:156
-#: vessel/login/templates/modal.php:64
 msgid "Confirm password"
 msgstr ""
 
@@ -178,19 +189,23 @@ msgstr ""
 msgid "Convert the html within the code tag to entity before saving posts"
 msgstr ""
 
+#: ext/web/Config.php:467
+msgid "Copyright Notice"
+msgstr ""
+
 #: vessel/optimize/Config.php:179
 msgid "Create a unique slug the first time you save the article"
 msgstr ""
 
-#: ext/web/Config.php:469
+#: ext/web/Config.php:477
 msgid "Customer service"
 msgstr ""
 
-#: ext/web/Config.php:480
+#: ext/web/Config.php:488
 msgid "Customer service QQ"
 msgstr ""
 
-#: ext/web/Config.php:486
+#: ext/web/Config.php:494
 msgid "Customer service wechat"
 msgstr ""
 
@@ -279,13 +294,13 @@ msgstr ""
 msgid "Display resource quantity"
 msgstr ""
 
-#: page.php:22 single.php:35 ext/web/single.php:30
+#: single.php:35 page.php:22 ext/web/single.php:30
 #: ext/web/xcommerce/templates/single.php:72
 msgid "Edit"
 msgstr ""
 
-#: vessel/login/templates/xenice-login.php:92
 #: vessel/login/templates/modal.php:58
+#: vessel/login/templates/xenice-login.php:92
 msgid "Email"
 msgstr ""
 
@@ -332,7 +347,7 @@ msgstr ""
 msgid "Enable css animation"
 msgstr ""
 
-#: ext/web/Config.php:473
+#: ext/web/Config.php:481
 msgid "Enable customer service"
 msgstr ""
 
@@ -381,7 +396,7 @@ msgstr ""
 msgid "execute..."
 msgstr ""
 
-#: functions.php:173
+#: functions.php:175
 msgid "Expire time: "
 msgstr ""
 
@@ -458,13 +473,13 @@ msgstr ""
 msgid "Header and footer colors"
 msgstr ""
 
-#: search.php:15 functions.php:107 functions.php:127 functions.php:218
+#: functions.php:109 functions.php:129 functions.php:220 search.php:15
 #: ext/web/Config.php:324
 msgid "Home"
 msgstr ""
 
 #. Name of the template
-#: ext/web/Ext.php:24
+#: ext/web/Ext.php:32
 msgid "Home-1"
 msgstr ""
 
@@ -472,7 +487,7 @@ msgstr ""
 msgid "Hot Posts"
 msgstr ""
 
-#: ext/web/xcommerce/templates/single.php:97
+#: ext/web/xcommerce/templates/single.php:102
 msgid "Hot Recommendation"
 msgstr ""
 
@@ -521,7 +536,7 @@ msgstr ""
 msgid "Light"
 msgstr ""
 
-#: single.php:48 vessel/ajax/LikeAjax.php:31 ext/web/single.php:46
+#: single.php:48 ext/web/single.php:46 vessel/ajax/LikeAjax.php:31
 msgid "Liked"
 msgstr ""
 
@@ -534,13 +549,13 @@ msgstr ""
 msgid "List Style"
 msgstr ""
 
-#: functions.php:48 functions.php:199 vessel/login/Login.php:59
+#: functions.php:50 functions.php:201 vessel/login/Login.php:59
+#: vessel/login/templates/modal.php:12 vessel/login/templates/modal.php:27
+#: vessel/login/templates/modal.php:46
 #: vessel/login/templates/xenice-login.php:78
 #: vessel/login/templates/xenice-login.php:111
 #: vessel/login/templates/xenice-login.php:135
 #: vessel/login/templates/xenice-login.php:170
-#: vessel/login/templates/modal.php:12 vessel/login/templates/modal.php:27
-#: vessel/login/templates/modal.php:46
 msgid "Login"
 msgstr ""
 
@@ -548,7 +563,7 @@ msgstr ""
 msgid "Login..."
 msgstr ""
 
-#: functions.php:193
+#: functions.php:195
 msgid "Logout"
 msgstr ""
 
@@ -582,15 +597,15 @@ msgstr ""
 msgid "Main"
 msgstr ""
 
-#: functions.php:209
+#: functions.php:211
 msgid "Main Menu"
 msgstr ""
 
-#: functions.php:191
+#: functions.php:193
 msgid "Manage"
 msgstr ""
 
-#: functions.php:187
+#: functions.php:189
 msgid "My orders"
 msgstr ""
 
@@ -651,9 +666,9 @@ msgstr ""
 msgid "Page Width"
 msgstr ""
 
+#: vessel/login/templates/modal.php:24 vessel/login/templates/modal.php:61
 #: vessel/login/templates/xenice-login.php:75
 #: vessel/login/templates/xenice-login.php:95
-#: vessel/login/templates/modal.php:24 vessel/login/templates/modal.php:61
 msgid "Password"
 msgstr ""
 
@@ -704,7 +719,7 @@ msgid ""
 "Please remember the password, you can click the following link to log in: "
 msgstr ""
 
-#: functions.php:226 vessel/Config.php:354 ext/web/Config.php:413
+#: functions.php:228 vessel/Config.php:354 ext/web/Config.php:413
 msgid "Posts"
 msgstr ""
 
@@ -720,16 +735,20 @@ msgstr ""
 msgid "Profile can also be saved when user email is empty"
 msgstr ""
 
-#: sidebar.php:37 index.php:17 vessel/widgets/RecentPostsWidget.php:27
+#: ext/web/Ext.php:174
+msgid "QQ customer service"
+msgstr ""
+
+#: index.php:17 sidebar.php:37 vessel/widgets/RecentPostsWidget.php:27
 msgid "Recent Posts"
 msgstr ""
 
-#: vessel/login/Login.php:60 vessel/login/templates/xenice-login.php:83
+#: vessel/login/Login.php:60 vessel/login/templates/modal.php:15
+#: vessel/login/templates/modal.php:49 vessel/login/templates/modal.php:73
+#: vessel/login/templates/xenice-login.php:83
 #: vessel/login/templates/xenice-login.php:107
 #: vessel/login/templates/xenice-login.php:136
 #: vessel/login/templates/xenice-login.php:171
-#: vessel/login/templates/modal.php:15 vessel/login/templates/modal.php:49
-#: vessel/login/templates/modal.php:73
 msgid "Register"
 msgstr ""
 
@@ -781,7 +800,7 @@ msgstr ""
 msgid "save success"
 msgstr ""
 
-#: search.php:16 header.php:64 ext/web/Config.php:343
+#: header.php:64 search.php:16 ext/web/Config.php:343
 msgid "Search"
 msgstr ""
 
@@ -1025,6 +1044,15 @@ msgstr ""
 msgid "Title:"
 msgstr ""
 
+#: ext/web/page-templates/update-log.php:100
+msgid "Uncategorized"
+msgstr ""
+
+#. Name of the template
+#: ext/web/Ext.php:33
+msgid "Update Log"
+msgstr ""
+
 #: vessel/Elements.php:248 vessel/Elements.php:266
 msgid "URL:"
 msgstr ""
@@ -1033,8 +1061,8 @@ msgstr ""
 msgid "User does not set email"
 msgstr ""
 
-#: vessel/login/templates/xenice-login.php:89
 #: vessel/login/templates/modal.php:55
+#: vessel/login/templates/xenice-login.php:89
 msgid "Username"
 msgstr ""
 
@@ -1052,9 +1080,9 @@ msgstr ""
 msgid "Username does not exist"
 msgstr ""
 
+#: vessel/login/templates/modal.php:21
 #: vessel/login/templates/xenice-login.php:72
 #: vessel/login/templates/xenice-login.php:121
-#: vessel/login/templates/modal.php:21
 msgid "Username or Email"
 msgstr ""
 
@@ -1068,6 +1096,10 @@ msgstr ""
 
 #: vessel/about/Config.php:32
 msgid "Version"
+msgstr ""
+
+#: ext/web/page-templates/update-log.php:112
+msgid "View"
 msgstr ""
 
 #: ext/web/xcommerce/templates/download-part.php:44
@@ -1085,8 +1117,12 @@ msgid ""
 "you with more choices!"
 msgstr ""
 
-#: ext/web/xcommerce/templates/customer-service.php:9
+#: ext/web/Ext.php:181 ext/web/xcommerce/templates/customer-service.php:9
 msgid "Wechat"
+msgstr ""
+
+#: ext/web/Ext.php:183
+msgid "WeChat customer service"
 msgstr ""
 
 #: vessel/Config.php:401 ext/web/Config.php:460
@@ -1095,7 +1131,7 @@ msgid ""
 "facebook"
 msgstr ""
 
-#: ext/web/Config.php:474
+#: ext/web/Config.php:482
 msgid ""
 "When enabled, a customer service button will be displayed on the details "
 "page."

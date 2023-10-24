@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * Functions
  *
@@ -386,7 +388,7 @@ add_filter( 'get_the_date', 'yy_format_get_date', 20, 3);
 
 
 /**
- * Format time
+ * Format modified time
  *
  */
 
@@ -401,6 +403,7 @@ function yy_format_get_modified_date($date, $format, $post){
     return yy_since($older_date);
 }
 add_filter( 'get_the_modified_date', 'yy_format_get_modified_date', 20,3);
+
 
 
 
@@ -544,6 +547,7 @@ if ( ! is_admin() ) {
 
 	add_action( 'wp_head', 'yy_head' );
 
+    
 	add_action('wp_footer', function() {
 		?>
 		<script>
@@ -559,18 +563,8 @@ if ( ! is_admin() ) {
 				}
 			});
 
-			$(".scroll-top").on("click",function(){
-				$("body,html").animate({"scrollTop":0},500);
-			});
+		
 		});
-
-		function yy_check_search(){
-
-			if(jQuery("#wd").val() == ""){
-				return false;
-			}
-			return true;
-		}
 		</script>
 			<?php
 
@@ -581,18 +575,30 @@ if ( ! is_admin() ) {
 					<?php
 				}
 			}
-			echo '<div class="rollbar md-down-none">';
-			if ( yy_get( 'enable_back_to_top' ) ) {
-				?>
-				<div class="rollbar-item scroll-top" title="<?php esc_attr_e( 'Back to top', 'onenice' ); ?>"><i class="fa fa-angle-up"></i></div>
-				<?php
+			
 
-			}
-			echo '</div>';
+	},99);
+	
+	function yy_rollbar(){
+        ?>
+        <script>
+            jQuery(function($){
+                $(".rollbar .scroll-top").on("click",function(){
+    				$("body,html").animate({"scrollTop":0},500);
+    			});
+            });
+        </script>
+        <?php
+        echo '<div class="rollbar md-down-none">';
+		if ( yy_get( 'enable_back_to_top' ) ) {
+			?>
+			<div class="rollbar-item scroll-top" title="<?php esc_attr_e( 'Back to top', 'onenice' ); ?>"><i class="fa fa-angle-up"></i></div>
+			<?php
 
-		},
-		99
-	);
+		}
+		echo '</div>';
+    }
+    add_action('wp_footer', 'yy_rollbar', 99);
 	
 }
 
