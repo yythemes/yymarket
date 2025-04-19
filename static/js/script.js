@@ -5,10 +5,49 @@
  */
 
 var xenice = (function(){
-	var x = {
-	};
-	return x;
+    var x = {
+		scrollTop:function(){
+		    return document.body.scrollTop + document.documentElement.scrollTop;
+		},
+        // collapse menu
+        collapse: function(toggle, left, right, shade, overflow){
+            var $ = jQuery;
+            $(toggle).on('click',function(){
+                $(left).animate({
+                    left:'0'
+                });
+                $(right).animate({
+                    left: '65%'
+                });
+                $(overflow).css('overflow','hidden');
+                $(shade).fadeIn();
+            });
+            $(shade).on('click',function(){
+                $(left).animate({
+                    left:'-65%'
+                });
+                $(right).animate({
+                    left: '0'
+                });
+                $(overflow).css('overflow','');
+                $(shade).fadeOut();
+            });
+            
+            $(window).resize(function(){
+                if($(window).width()>=768){
+                    $(left).css('left','');
+                    $(right).css('left','');
+                    $(overflow).css('overflow','');
+                    $(shade).hide();
+                }
+            });
+        }
+    };
+
+	
+    return x;
 })();
+
 
 jQuery(function($){
     
@@ -25,6 +64,34 @@ jQuery(function($){
         }
     },100);
     
+    // mobile scroll
+    var scrollTop = xenice.scrollTop();
+    var scroll = function() {
+        
+        if($(window).width()<768){
+            $(window).off('scroll');
+            var pos = xenice.scrollTop();
+            if(pos>scrollTop && pos>50){
+                $('.yy-header').fadeOut();
+            }
+            else{
+                $('.yy-header').fadeIn();
+            }
+            scrollTop = pos;
+            setTimeout(function() {
+                $(window).on('scroll', scroll);
+                var pos = xenice.scrollTop();
+                if(pos<=50){
+                    $('.yy-header').fadeIn();
+                }
+            }, 400);
+        }
+    };
+    $(window).on('scroll', scroll);
+
+	// moblie menu slide
+    xenice.collapse('.menu-toggle','.menu-collapse','body,.yy-header','.shade','body');
+    
     // show sub-menu
     $(".navbar-nav > .menu-item").mouseenter(function(){
         $(this).children(".sub-menu").show();
@@ -40,8 +107,40 @@ jQuery(function($){
     $(".sub-menu").mouseleave(function() {
         $(this).hide();
     })
-});
+    
+    
+    // moblie search form
+    $(".search-toggle").on('click',function(){
+        var e = $('.yy-header .search-form')
+        var d = e.css('display');
+        if(d === 'none'){
+            e.fadeIn();
+            $(".yy-header .search-toggle").html('<i class="fa fa-times"></i>')
+            $('.yy-header .keywords').focus();
+        }
+        else{
+            e.fadeOut();
+            $(".yy-header .search-toggle").html('<i class="fa fa-search"></i>')
+            $('.yy-header .keywords').blur();
+        }
+        
+        
+    });
+    $(".yy-header .menu-toggle").on('click',function(){
+        $('.yy-header .search-form').hide();
+        $(".yy-header .search-toggle").html('<i class="fa fa-search"></i>')
+    })
+    
+    $(window).resize(function(){
+        if($(window).width()<768){
+            $('.sub-menu').show();
 
+        }
+        else{
+            $('.yy-header').show();
+        }
+    });
+});
 
 
 /* get a like */
@@ -70,6 +169,31 @@ jQuery(function($){
     })
 });
 
+
+/* product-list image */
+jQuery(function() {
+    if(jQuery('.product-list .thumbnail').length<1) return;
+    var images = jQuery('.product-list .thumbnail');
+    images.each(function() {
+        var width = jQuery(this).width();
+        var height = width * 0.75;
+        jQuery(this).height(height);
+    });
+});
+
+jQuery(window).on('resize', function() {
+    if(jQuery('.product-list .thumbnail').length<1) return;
+    setTimeout(function(){
+        var images = jQuery('.product-list .thumbnail');
+        images.each(function() {
+            var width = jQuery(this).width();
+            var height = width * 0.75;
+            jQuery(this).height(height);
+        });
+    },100)
+    
+});
+/* #product-list image */
 
 /* Fixed the issue that the search form and comment form in the details page responded to the Enter key at the same time */
 
@@ -102,3 +226,28 @@ function yy_check_search(){
 	}
 	return true;
 }
+
+function yy_check_home_search(){
+
+	if(jQuery("#home-wd").val() == ""){
+		return false;
+	}
+	return true;
+}
+
+/* rollbar popover */
+jQuery(function(){
+    if(jQuery('[data-toggle="qq-popover"]').length<1) return;
+    jQuery('[data-toggle="qq-popover"]').popover();   
+});
+
+jQuery(function(){
+    if(jQuery('[data-toggle="wechat-popover"]').length<1) return;
+    jQuery('[data-toggle="wechat-popover"]').popover();   
+});
+
+/* product page: Contact customer service popover init */
+jQuery(function(){
+    if(jQuery('[data-toggle="popover"]').length<1) return;
+    jQuery('[data-toggle="popover"]').popover();   
+});

@@ -27,6 +27,7 @@ if ( is_singular() ) {
 if ( !yy_import( 'header' ) ) {
 ?>
 <div class="yy-site">
+<div class="shade"></div>
 <div class="yy-header">
     <div class="yy-group">
         <div class="navbar navbar-expand-md">
@@ -41,12 +42,23 @@ if ( !yy_import( 'header' ) ) {
         		<a class="navbar-brand" href="<?php echo esc_attr( home_url() ); ?>"><h1><?php bloginfo( 'name' ); ?></h1></a>
         		<?php endif; ?>
         		<!-- Toggler/collapsibe Button -->
-        		<div class="menu-toggle d-md-none" data-toggle="collapse" data-target="#collapsibleNavbar">
+        		<div class="menu-toggle d-md-none">
         		<i class="fa fa-bars"></i>
         		</div>
-        
+        		
+        		<?php if ( yy_get( 'show_search' ) ) : ?>
+                    <div class="search-toggle d-md-none">
+            		<i class="fa fa-search"></i>
+            		</div>
+        		<?php else:?>
+        		    <style>
+        		        .yy-header .navbar .user-login {
+                            right: 0px;
+                        }
+        		    </style>
+                <?php endif; ?>
         		<!-- Navbar links -->
-        		<div class="collapse navbar-collapse d-md-flex justify-content-md-between" id="collapsibleNavbar">
+        		<div class="navbar-collapse menu-collapse d-md-flex justify-content-md-between">
         			<?php
         				wp_nav_menu(
         					array(
@@ -57,19 +69,19 @@ if ( !yy_import( 'header' ) ) {
         					)
         				);
         			?>
-        			<?php if ( yy_get( 'show_search' ) ) : ?>
-        			<div class="d-md-flex justify-content-md-end">
-        				<form class="search-form" method="get" onsubmit="return yy_check_search" action="<?php echo esc_attr( home_url() ); ?>/" >
-        					<div class="form-group search-form">
-        						<input id="wd" type="text" name="s" class="form-control keywords" placeholder="<?php esc_attr_e( 'Search', 'onenice' ); ?>" value="<?php echo $s ? esc_attr( $s ) : ''; ?>" />
-        						<button type="submit" class="rounded submit">
-        							<i class="fa fa-search"></i>
-        						</button>
-        					</div>
-        				</form>
-        			</div>
-        			<?php endif; ?>
         		</div> 
+        		<?php if ( yy_get( 'show_search' ) ) : ?>
+    			<div class="d-md-flex justify-content-md-end">
+    				<form class="search-form" method="get" onsubmit="return yy_check_search()" action="<?php echo esc_attr( home_url() ); ?>/" >
+    					<div class="form-group">
+    						<input id="wd" type="text" name="s" class="form-control keywords" placeholder="<?php echo yy_get('search_box_tips'); ?>" value="<?php echo empty($s) ?  '':esc_attr( $s ); ?>" />
+    						<button type="submit" class="rounded submit">
+    							<i class="fa fa-search"></i>
+    						</button>
+    					</div>
+    				</form>
+    			</div>
+    			<?php endif; ?>
         		<?php
         		if ( yy_get( 'show_login_button' ) ) {
         			yy_login();}

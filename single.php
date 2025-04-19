@@ -39,6 +39,9 @@ if ( !yy_import( 'single' ) ) {?>
         					<?php the_content(); ?>
         					<?php wp_link_pages(); ?>
         				</div>
+        				<?php if ( yy_get( 'enable_photoswipe' ) ){
+        				     include(__DIR__ . '/template-parts/photoswipe.php');
+        				}?>
         				<?php if ( yy_get( 'single_show_tags' ) ) : ?>
         					<div class="post-tags"><?php the_tags( __( 'Tags: ', 'onenice' ), '', '' ); ?></div>
         				<?php endif; ?>

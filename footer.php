@@ -24,6 +24,11 @@ if ( !yy_import( 'footer' ) ) {
     			}
     			?>
     		</div>
+    		<?php if(yy_get('footer_copyright_notice' )):?>
+    		<div class="copyright-notice">
+                <i class="fa fa-info-circle"></i><?php echo esc_html(yy_get( 'footer_copyright_notice' ))?> 
+            </div>
+            <?php endif;?>
     	</div>
 	</div><!-- yy-group -->
 </div><!-- yy-footer -->

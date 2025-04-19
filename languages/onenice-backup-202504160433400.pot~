@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: onenice\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-16 04:33+0000\n"
+"POT-Creation-Date: 2025-04-16 04:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -210,6 +210,10 @@ msgstr ""
 
 #: vessel/Elements.php:252 vessel/Elements.php:270
 msgid "Description:"
+msgstr ""
+
+#: vessel/vessel.php:132
+msgid "Developed by <a href=\"https://www.xenice.com/\">Xenice</a>."
 msgstr ""
 
 #: ext/class-optimize.php:58
@@ -500,7 +504,7 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: vessel/vessel.php:121
+#: vessel/vessel.php:123
 msgid "Mail"
 msgstr ""
 
@@ -782,7 +786,7 @@ msgstr ""
 msgid "Service infomation"
 msgstr ""
 
-#: vessel/vessel.php:113
+#: vessel/vessel.php:115
 msgid "Settings"
 msgstr ""
 

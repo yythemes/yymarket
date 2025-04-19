@@ -3,7 +3,7 @@
     display: none;
     background-color: var(--yy-hf-bg-color);
     color:var(--yy-hf-fg-color);
-    border-top: 1px solid #eeeeee;
+    box-shadow: 0 1px 3px #eee;
 	padding:20px 0;
 	margin-top:30px;
 	font-size:13px;
@@ -27,6 +27,16 @@
     	flex-wrap: wrap;
     	span,>a{
         	margin:5px;
+        }
+    }
+    .copyright-notice{
+        color: #999;
+        font-size: 13px;
+        line-height: 1.6;
+        margin-top: 5px;
+        .fa-info-circle{
+            margin-right: 5px!important;
+            font-size: 15px;
         }
     }
     

@@ -78,6 +78,8 @@ class LoginAjax extends Ajax
             $error .= __('Password length should not be less than 6', 'onenice') . ' ';
         }
         
+        isset($_SESSION) || session_start();
+        
         if(empty($_POST['captcha']) || empty($_SESSION['xenice_captcha']) || trim(strtolower($_POST['captcha'])) != $_SESSION['xenice_captcha']){
             $error .= __('Captcha error', 'onenice') . ' ';
         }
@@ -179,6 +181,8 @@ class LoginAjax extends Ajax
     		$_dscode.=$dscode;
     	}
     	
+    	isset($_SESSION) || session_start();
+    	
     	$_SESSION['xenice_captcha']=strtolower($_dscode);
     	$_SESSION['xenice_captcha_email']=$email;
     	$message = __('Captcha', 'onenice') . ': ' .$_dscode;   
@@ -191,6 +195,8 @@ class LoginAjax extends Ajax
         if(!wp_verify_nonce($_POST['forget_password_nonce'],'forget_password')){
             exit;
         }
+        
+        isset($_SESSION) || session_start();
         
         $arr = $_SESSION['forget_password_captcha']??null;
         $time = time() - 60; // The captcha expires in 60 seconds
@@ -235,8 +241,8 @@ class LoginAjax extends Ajax
 				$key = wp_generate_password(20, false); 
 				$wpdb->update($wpdb->users, array('user_activation_key' => $key), array('user_login' => $user_login)); 
 			}   
-		    
-		    $page = \xenice\login\get_page('onenice');
+
+            $page = yy_get_page('xenice-login');
 			$verify_url = get_permalink($page->ID) . "?action=reset_password&key=".md5('xenice'.$key)."&login=" . rawurlencode($user_login); 
 			
 			
@@ -266,6 +272,8 @@ class LoginAjax extends Ajax
             exit;
         }
         
+        isset($_SESSION) || session_start();
+        
         $arr = $_SESSION['reset_password_captcha']??null;
         $time = time() - 60; 
         if(empty($_POST['captcha']) || empty($arr) || $_POST['captcha'] != $arr['code'] || $arr['time'] < $time){
@@ -288,8 +296,8 @@ class LoginAjax extends Ajax
 			wp_set_password( $newpass, $user_data->ID ); 
 			$key = wp_generate_password(20, false); 
 			$wpdb->update($wpdb->users, ['user_activation_key' => $key], ['user_login' => $user_login]); 
-            $page = \xenice\login\get_page('onenice');
-			$verify_url = get_permalink($page->ID);  
+            $page = yy_get_page('xenice-login');
+			$verify_url = get_permalink($page->ID);
 			$subject = '[' . get_option('blogname') . '] ' . __('Password changed successfully', 'onenice');
 			$message = '<table cellpadding="0" cellspacing="0" align="center" style="text-align:left;font-family:Microsoft Yahei,arial;" width="742"><tbody><tr><td><table cellpadding="0" cellspacing="0" style="text-align:left;border:1px solid #666;color:#fff;font-size:18px;" width="740"><tbody><tr height="45" style="background-color:#666;"><td style="padding-left:15px;font-family:Microsoft Yahei,arial;font-size:24px;">'.get_bloginfo("name").' </td></tr></tbody></table><table cellpadding="0" cellspacing="0" style="text-align:left;border:1px solid #f0f0f0;border-top:none;color:#585858;background-color:#fafafa;font-size:14px;" width="740"><tbody><tr height="25"><td></td></tr><tr height="40"><td style="padding-left:25px;padding-right:25px;font-size:18px;font-family:Microsoft Yahei,arial;">' . __('Dear ', 'onenice') . $user_login . __(':', 'onenice') . ' </td></tr><tr height="15"><td></td></tr><tr height="30"><td style="padding-left:55px;padding-right:55px;font-family:Microsoft Yahei,arial;font-size:14px;line-height:20px;"> ' . __('Your password has been changed successfully, user name: ', 'onenice') . $user_login.'&nbsp;&nbsp;&nbsp;&nbsp; ' .  __('New password: ', 'onenice') . $newpass.'</td></tr><tr height="15"><td></td></tr><tr height="30"><td style="padding-left:55px;padding-right:55px;font-family:Microsoft Yahei,arial;font-size:14px;line-height:20px;">'.__('Please remember the password, you can click the following link to log in: ', 'onenice') . ' </td></tr><tr height="15"><td></td></tr><tr height="30"><td style="padding-left:55px;padding-right:55px;font-family:Microsoft Yahei,arial;font-size:14px;line-height:20px;"><a href="'.$verify_url.'" target="_blank">'.$verify_url.'</a> </td></tr><tr height="20"><td></td></tr><tr><td style="padding-left:55px;padding-right:55px;font-family:Microsoft Yahei,arial;font-size:14px;"> ' . __('With the best wishes', 'onenice') . '<br>'.get_bloginfo("name").'</td></tr><tr height="50"><td></td></tr></tbody></table><table cellpadding="0" cellspacing="0" style="color:#969696;font-size:12px;vertical-align:middle;text-align:center;" width="740"><tbody><tr height="5"><td></td></tr><tr height="20"><td width="680" style="text-align:left;font-family:Microsoft Yahei,arial"> '.date("Y").' <span>©</span> <a href="'.home_url().'" target="_blank" style="text-decoration:none;color:#969696;padding-left:5px;" title="'.get_bloginfo("name").'">'.home_url().'</a> </td><td width="30" style="text-align:right;font-family:Microsoft Yahei,arial"></td><td width="30" style="text-align:right;font-family:Microsoft Yahei,arial"></td></tr></tbody></table></td></tr></tbody></table>';   
 			$headers = 'Content-Type: text/html; charset=' . get_option('blog_charset') . "\n";

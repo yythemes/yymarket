@@ -1,39 +1,29 @@
 <?php
-/**
- * Search
- *
- * @package YYThemes
- */
-use xenice\commerce\models\Orders;
-use function xenice\commerce\get_field as get_field;
-use function xenice\commerce\get_price as get_price;
-use function xenice\commerce\get_order_price as get_order_price;
-use function xenice\commerce\get_page_url as get_page_url;
+/*
+Template Name: Home-1
+*/
+
+if(!defined('ABSPATH')) exit;
+
+
+
+add_filter( 'body_class', function( $classes ) {
+	return array_merge( $classes, array( 'home' ) );
+});
 
 get_header();
 
-if ( !yy_import( 'search' ) ) {?>
+?>
+
 <div class="yy-main">
-    <div class="yy-group search-brand">
-        <div class="jumbotron jumbotron-fluid">
-          <div class="container">
-              <h2 class="search-title"><?php echo yy_get('search_box_title')?></h2> 
-              <p class="search-desc"><?php echo yy_get('search_box_description')?></p>
-				<form class="search-form" method="get" onsubmit="return yy_check_home_search()" action="<?php echo esc_attr( home_url() ); ?>/" >
-					<div class="form-group">
-						<input id="home-wd" type="text" name="s" class="form-control keywords" placeholder="<?php echo yy_get('search_box_tips'); ?>" value="<?php echo empty($s) ?  '':esc_attr( $s ); ?>" />
-						<button type="submit" class="rounded submit">
-							<i class="fa fa-search"></i>
-						</button>
-					</div>
-				</form>
-          </div>
-        </div>
-    </div>
+    <div class="yy-group">
+        <?php yy_get( 'enable_slides' ) && get_template_part( 'template-parts/home', 'slides' ); ?>
+    </div><!-- yy-group -->
     <div class="yy-group">
         <div class="container">
             <div class="flex-title">
-                <h3><?php _e('The following results were found:', 'onenice') ?></h3>
+                <h3><?php echo yy_get('last_published_alias')?></h3>
+                <div class="desc"><?php echo yy_get('last_published_description')?></div>
             </div>
             <div class="flex product-list" >
                 <?php
@@ -42,8 +32,7 @@ if ( !yy_import( 'search' ) ) {?>
                     'post_type' => 'product',
                     'orderby' => 'modified',
                     'posts_per_page' => yy_get('resource_quantity'),
-                    'paged' => $paged,
-                    's'=>esc_html( $s )
+                    'paged' => $paged
                 );
                 $query = new WP_Query( $args );
                 ?>
@@ -58,8 +47,8 @@ if ( !yy_import( 'search' ) ) {?>
                     	    <a href="<?php the_permalink()?>" title="<?php the_title() ?>"><?php the_title() ?></a>
                     	</h4>
                     	<div class="bottom-data">
-                    	    <div class="time"><?php echo get_the_modified_date('Y-m-d', get_the_ID()); ?></div>
-                    	    <div class="price"><?php echo get_price( get_the_ID())?:'';?></div>
+                    	    <div class="time"><?php echo get_the_date('Y-m-d', get_the_ID()); ?></div>
+                    	    <div class="price"><?php echo xc_get_price( get_the_ID())?:'';?></div>
                     	</div>
                         
                 	</div>
@@ -70,9 +59,7 @@ if ( !yy_import( 'search' ) ) {?>
                 <?php else: ?>
                 <div class="card">
                     <div class="card-body">
-                        <div class="data">
-                            <p class="card-text" style="display:block"><?php echo __('No resources found.', 'onenice')?></p>
-                        </div>
+                        <p class="card-text"><?php echo __('No products.', 'xenice-commerce')?></p>
                     </div>
                 </div>
                 <?php endif; ?>
@@ -94,7 +81,7 @@ if ( !yy_import( 'search' ) ) {?>
         </div>
     </div><!-- yy-group -->
 </div><!-- yy-main -->
-	<?php
-}
 
+<?php
 get_footer();
+?>

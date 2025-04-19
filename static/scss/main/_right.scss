@@ -34,7 +34,7 @@
             }
         }
         .widget{
-        	margin-bottom:50px;
+        	margin-bottom:30px;
         	.lazyload{
             	width:122px;
             	height:86px;
@@ -54,21 +54,24 @@
         .post-date{
         	display: block;
         }
-        .thumbnail{
-            li{
-                display:flex;
-                margin: 20px 0;
-                line-height:1.8;
-                img {
-                    width: 122px;
-                    height: 96px;
-                    border-radius: 5px;
-                    object-fit: cover;
-                }
-                .data{
-                    line-height:1.8;
-                }
-            }
+        ul li {
+            margin: 5px 0;
+            background-color: #fff;
+            padding: 10px;
+        }
+    }
+    .widget{
+        ul li {
+            margin: 5px 0;
+            background-color: #fff;
+            padding: 10px;
+        }
+    }
+    .categories{
+        ul li {
+            margin: 5px 0;
+            background-color: #fff;
+            padding: 10px;
         }
     }
     .widget_tag_cloud{
@@ -116,6 +119,7 @@
     .yy-main{
     	.right{
     		padding-left:15px;
+    		padding-right:15px;
     	}
     	.right a{
     		font-size:15px;

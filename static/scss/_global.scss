@@ -5,6 +5,8 @@ body {
 	font-family: 'Poppins',sans-serif,'Microsoft Yahei';
 	color:var(--yy-fg-color);
 	background-color: var(--yy-bg-color);
+	
+	
 }
 
 a{
@@ -23,6 +25,12 @@ h3{
 
 video{
 	max-width: 100%;
+}
+
+.shade{
+    display: none;
+    position: fixed;
+    top: 0;
 }
 
 @media screen and (min-width:768px){
@@ -88,4 +96,37 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="password"],
 		font-size:14px;
 	}
 
+}
+
+@media screen and (max-width:767px) {
+    .shade{
+        width:100%;
+        height:120%;
+        position: absolute;
+        background: #212529;
+        opacity: .5;
+        z-index:12;
+    }
+    
+    .menu-collapse {
+        width: 65%;
+        position: fixed;
+        background: #fff;
+        z-index: 13;
+        top: 0;
+        left: -65%;
+        margin: 0;
+        padding: 15px;
+        height: 100%;
+        overflow: auto;
+    }
+    body{
+        padding-top: 50.6px;
+        position: relative;
+    }
+    .user-login{
+        .dropdown-menu{
+            top:unset;
+        }
+    }
 }

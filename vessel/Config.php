@@ -22,21 +22,21 @@ class Config extends Options
 		// #1fae67 #229e60 #35dc89 Green
 		// #ff4979 #f2295e #fb94af Pink
         $defaults = [
-            'main_color' => '#0099FF',
-            'dark_color' => '#007bff',
-            'light_color'=> '#99CCFF',
+            'main_color' => '#FF5E52',
+            'dark_color' => '#f13c2f',
+            'light_color'=> '#fc938b',
             'link_color' => '#555555',
-            'bg_color'   => '#FFFFFF',
+            'bg_color'   => '#fafafa',
             'fg_color'   => '#333333',
             
-            'hf_main_color' => '#0099FF',
-            'hf_dark_color' => '#007bff',
-            'hf_light_color'=> '#99CCFF',
+            'hf_main_color' => '#FF5E52',
+            'hf_dark_color' => '#f13c2f',
+            'hf_light_color'=> '#fc938b',
             'hf_link_color' => '#555555',
-            'hf_bg_color'   => '#FFFFFF',
+            'hf_bg_color'   => '#ffffff',
             'hf_fg_color'   => '#333333',
             
-            'page_width' => 1200,
+            'page_width' => 1320,
             
         ];
         $this->name = 'xenice_' . $this->key;
@@ -166,6 +166,12 @@ class Config extends Options
                             'value' => ''
                         ],
                         [
+                            'id'   => 'resource_quantity',
+                            'name' => esc_html__('Display resource quantity', 'onenice'),
+                            'type' => 'number',
+                            'value' => 12,
+                        ],
+                        [
                             'name'=> esc_html__('Auxiliary functions', 'onenice'),
                             'fields'=>[
                                 [
@@ -205,11 +211,19 @@ class Config extends Options
                                     'label'  => esc_html__('Give a like', 'onenice')
                                 ],
                                 [
+                                    'id'   => 'enable_admin_download',
+                                    'type'  => 'checkbox',
+                                    'value' => false,
+                                    'label'  => esc_html__('Administrators can download it directly.', 'onenice'),
+                                ],
+                                [
                                     'id'    => 'enable_back_to_top',
                                     'label' => esc_html__('Enable back to top button', 'onenice'),
                                     'type'  => 'checkbox',
                                     'value' => false
                                 ],
+                                
+                                
                             ]
                         ],
                         
@@ -258,6 +272,14 @@ class Config extends Options
                             'type'  => 'checkbox',
                             'value' => false
                         ],
+                        [
+                            'id'    => 'footer_copyright_notice',
+                            'name'  => esc_html__('Footer Copyright Notice', 'onenice'),
+                            'desc'  => esc_html__('Add a copyright notice at the bottom of the website.', 'onenice'),
+                            'type'  => 'textarea',
+                            'rows'  => 4,
+                            'value' => '',
+                        ],
                     ]
                 ], #tab footer
                 [
@@ -278,19 +300,19 @@ class Config extends Options
                             'value' => [
                                 [
                                     'url'=>'https://www.yythemes.com/',
-                                    'src'=>STATIC_URL . '/images/yy_slide_1.jpg',
+                                    'src'=>STATIC_URL . '/images/placeholder-large.png',
                                     'title'=>esc_html__( 'OneNice Theme', 'onenice' ),
                                     'desc'=>esc_html__('OneNice is a super concise WordPress theme, supporting both Chinese and English, free open source, no encryption, no redundant code, no authorization restrictions, can be used freely.', 'onenice')
                                 ],
                                 [
                                     'url'=>'https://www.yythemes.com/',
-                                    'src'=>STATIC_URL . '/images/yy_slide_2.jpg',
+                                    'src'=>STATIC_URL . '/images/placeholder-large.png',
                                     'title'=>esc_html__( 'OneNice Theme', 'onenice' ),
                                     'desc'=>esc_html__('OneNice is a super concise WordPress theme, supporting both Chinese and English, free open source, no encryption, no redundant code, no authorization restrictions, can be used freely.', 'onenice')
                                 ],
                                 [
                                     'url'=>'https://www.yythemes.com/',
-                                    'src'=>STATIC_URL . '/images/yy_slide_3.jpg',
+                                    'src'=>STATIC_URL . '/images/placeholder-large.png',
                                     'title'=>esc_html__( 'OneNice Theme', 'onenice' ),
                                     'desc'=>esc_html__('OneNice is a super concise WordPress theme, supporting both Chinese and English, free open source, no encryption, no redundant code, no authorization restrictions, can be used freely.', 'onenice')
                                 ],
@@ -299,6 +321,45 @@ class Config extends Options
                         
                     ]
                 ], #tab slides
+                [
+                    'id' => 'home',
+                    'title' => esc_html__('Home', 'onenice'),
+                    'fields'=>[
+                        [
+                            'id'   => 'search_box_title',
+                            'name' => esc_html__('Search box title', 'onenice'),
+                            'type' => 'text',
+                            'value' => __('Search website resources', 'onenice'),
+                        ],
+                        [
+                            'id'   => 'search_box_description',
+                            'name' => esc_html__('Search box description', 'onenice'),
+                            'type' => 'textarea',
+                            'rows' => 3,
+                            'value' => __('YYSmarket is a virtual resource paid download mall theme developed by YYThemes', 'onenice')
+                        ],
+                        [
+                            'id'   => 'search_box_tips',
+                            'name' => esc_html__('Search box tips', 'onenice'),
+                            'type' => 'text',
+                            'value' => esc_html__( 'Search', 'onenice' )
+                        ],
+                        [
+                            'id'   => 'last_published_alias',
+                            'name' => esc_html__('Last published alias', 'onenice'),
+                            'type' => 'text',
+                            'value' => esc_html__('Latest publish', 'onenice'),
+                        ],
+                        [
+                            'id'   => 'last_published_description',
+                            'name' => esc_html__('Last published description', 'onenice'),
+                            'type' => 'textarea',
+                            'rows' => 3,
+                            'value' => __('We will continue to update the latest hot resources and continue to provide you with more choices!', 'onenice')
+                        ],
+                        
+                    ]
+                ], #tab home
                 [
                     'id' => 'archive',
                     'title' => esc_html__('Archive', 'onenice'),
@@ -403,9 +464,42 @@ class Config extends Options
                             'rows'  => 4,
                             'value' => 'qzone,tencent,linkedin,diandian,google,twitter,facebook'
                         ],
+                        [
+                            'id'    => 'copyright_notice',
+                            'name'  => esc_html__('Copyright Notice', 'onenice'),
+                            'desc'  => esc_html__('Add a copyright notice at the bottom of the article.', 'onenice'),
+                            'type'  => 'textarea',
+                            'rows'  => 4,
+                            'value' => esc_html__('All articles on this site, unless otherwise specified, are original publications of this site. If the content of this site violates your legitimate rights and interests, please contact us to deal with it.', 'onenice')
+                        ],
                     ]
                 ], #tab posts
-            ]
+                [
+                    'id' => 'service',
+                    'title' => esc_html__('Customer service', 'onenice'),
+                    'fields'=>[
+                        [
+                            'id'    => 'enable_customer_service',
+                            'name'  => esc_html__('Enable customer service', 'onenice'),
+                            'label' => esc_html__('When enabled, a customer service button will be displayed on the details page.', 'onenice'),
+                            'type'  => 'checkbox',
+                            'value' => true
+                        ],
+                        [
+                            'id'    => 'customer_service_qq',
+                            'name'  => esc_html__('Customer service QQ', 'onenice'),
+                            'type'  => 'text',
+                            'value' => ''
+                        ],
+                        [
+                            'id'    => 'customer_service_wechat',
+                            'name'  => esc_html__('Customer service wechat', 'onenice'),
+                            'type'  => 'text',
+                            'value' => ''
+                        ],
+                    ]
+                ]
+            ] #tab posts
         ];
 	    parent::__construct();
     }

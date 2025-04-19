@@ -108,7 +108,7 @@ $action = $_GET['action']??'login';
             </div>
         </form>
         <div class='bottom'>
-            <a href="<?php echo get_permalink()?>"><?php esc_html_e('Login', 'onenice')?></a>
+            <a href="<?php echo get_permalink()?>?action=login"><?php esc_html_e('Login', 'onenice')?></a>
         </div>
     <?php elseif($action == 'forget_password'): ?>
         <div class="alert alert-info">
@@ -132,7 +132,7 @@ $action = $_GET['action']??'login';
             </div>
         </form>
         <div class='bottom'>
-            <a href="<?php echo get_permalink()?>"><?php esc_html_e('Login', 'onenice')?></a> &nbsp;
+            <a href="<?php echo get_permalink()?>?action=login"><?php esc_html_e('Login', 'onenice')?></a> &nbsp;
             <a href="<?php echo get_permalink()?>?>?action=register"><?php esc_html_e('Register', 'onenice')?></a>
         </div>
     <?php elseif($action == 'reset_password'): 
@@ -167,7 +167,7 @@ $action = $_GET['action']??'login';
             </div>
         </form>
         <div class='bottom'>
-            <a href="<?php echo get_permalink()?>"><?php esc_html_e('Login', 'onenice')?></a> &nbsp;
+            <a href="<?php echo get_permalink()?>?action=login"><?php esc_html_e('Login', 'onenice')?></a> &nbsp;
             <a href="<?php echo get_permalink()?>?action=register"><?php esc_html_e('Register', 'onenice')?></a>
         </div>
     <?php else:?>
